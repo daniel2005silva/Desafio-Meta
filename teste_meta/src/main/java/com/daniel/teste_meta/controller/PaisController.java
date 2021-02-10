@@ -1,6 +1,5 @@
 package com.daniel.teste_meta.controller;
 
-import com.daniel.teste_meta.model.Pais;
 import com.daniel.teste_meta.service.PaisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
