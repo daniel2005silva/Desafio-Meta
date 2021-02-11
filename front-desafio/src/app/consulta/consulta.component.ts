@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
-import { PaisService } from './pais.service';
+import { Component, OnInit } from '@angular/core';
+import { Pais } from '../pais';
+import { PaisService } from '../pais.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-consulta',
+  templateUrl: './consulta.component.html',
+  styleUrls: ['./consulta.component.scss']
 })
-export class AppComponent {
-  title = 'front-desafio';
-  
+export class ConsultaComponent implements OnInit {
+
+  cd_pais: String;
+  message: any;
+
   paises = [
     {
         "page": 1,
@@ -1420,13 +1423,15 @@ export class AppComponent {
     ]
   ];
 
-  cd_pais: String;
-  message: any;
-
   constructor(private service: PaisService) { }
 
-  public consultar(){
-    let resp = this.service.consultarPais(this.cd_pais);
-    resp.subscribe((data) => this.message = data);
+  ngOnInit() {
   }
+
+  public consultar(cd_pais){
+    let resp = this.service.consultarPais(cd_pais);
+    resp.subscribe((data) => this.message.json(data));
+  }
+
+
 }

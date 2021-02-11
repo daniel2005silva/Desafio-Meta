@@ -1,0 +1,14 @@
+<div class="navbar">
+
+</div>
+
+<div class="form">
+  <form method="get">
+    
+    <select class="inputs" (change)="consultar($event.target.value)">
+      <option *ngFor="let pais of paises[1]" value="{{ pais.iso2Code }}" ([ngModel])="cd_pais"> {{ pais.name }}</option>
+    </select>
+    <input type="submit" name="" class="btn" (click)="consultar(cd_pais)">
+  </form>
+ 
+</div>
